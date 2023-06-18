@@ -1,0 +1,63 @@
+{
+    "name": "mfuns-cn/hyperf-auth",
+    "type": "library",
+    "license": "BSD-2-Clause",
+    "keywords": [
+        "php",
+        "hyperf",
+        "auth",
+        "jwt"
+    ],
+    "description": "",
+    "autoload": {
+        "psr-4": {
+            "Mfuns\\HyperfAuth\\": "src/"
+        },
+        "files": [
+            "src/Functions.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mfuns\\Test\\HyperfAuth\\": "tests"
+        }
+    },
+    "require": {
+        "php": ">=8.0",
+        "hyperf/database": "3.0.*",
+        "hyperf/di": "3.0.*",
+        "hyperf/framework": "3.0.*",
+        "hyperf/http-server": "3.0.*",
+        "hyperf/redis": "3.0.*",
+        "mfuns-cn/hyperf-hashing": "3.2.*",
+        "psr/http-message": "^1.0",
+        "psr/http-server-middleware": "^1.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "mockery/mockery": "^1.0",
+        "phpstan/phpstan": "^1.0",
+        "phpunit/phpunit": ">=7.0",
+        "swoole/ide-helper": "^4.5"
+    },
+    "suggest": {
+        "swow/swow": "Required to create swow components.",
+        "ext-redis": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": "phpunit -c phpunit.xml --colors=always",
+        "analyse": "phpstan analyse --memory-limit 1024M -l 0 ./src",
+        "cs-fix": "php-cs-fixer fix $1",
+        "test-cs": "php-cs-fixer fix -v --dry-run --stop-on-violation --using-cache=no $1"
+    },
+    "extra": {
+        "hyperf": {
+            "config": "Mfuns\\HyperfAuth\\ConfigProvider"
+        }
+    }
+}

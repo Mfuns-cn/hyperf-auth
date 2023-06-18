@@ -1,0 +1,43 @@
+phpstan:
+    image: hyperf/hyperf:8.1-alpine-v3.15-swoole-v4.8
+    stage: test
+    script:
+        - composer config -g repo.packagist composer http://mirrors.tencentyun.com/composer/
+        - composer install
+        - composer run analyse
+
+unit:
+    image: hyperf/hyperf:8.1-alpine-v3.15-swoole-v4.8
+    stage: test
+    script:
+        - composer config -g repo.packagist composer http://mirrors.tencentyun.com/composer/
+        - composer install
+        - composer run test
+
+cs:
+    image: hyperf/hyperf:8.1-alpine-v3.15-swoole-v4.8
+    stage: test
+    script:
+        - composer config -g repo.packagist composer http://mirrors.tencentyun.com/composer/
+        - composer install
+        - composer run test-cs
+
+
+deploy:
+    image: curlimages/curl
+    stage: deploy
+    only:
+        - tags
+    script:
+        - 'curl --header "Job-Token: $CI_JOB_TOKEN" --data tag=${CI_COMMIT_REF_NAME} "${CI_API_V4_URL}/projects/$CI_PROJECT_ID/packages/composer"'
+
+deploy_branch:
+    image: curlimages/curl
+    stage: deploy
+    only:
+        - branches
+    script:
+        - 'curl --header "Job-Token: $CI_JOB_TOKEN" --data branch=master "${CI_API_V4_URL}/projects/$CI_PROJECT_ID/packages/composer"'
+
+
+
