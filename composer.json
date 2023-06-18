@@ -30,7 +30,7 @@
         "hyperf/http-server": "3.0.*",
         "hyperf/redis": "3.0.*",
         "mfuns-cn/hyperf-hashing": "3.2.*",
-        "psr/http-message": "^1.0",
+        "psr/http-message": "^1.0|^2.0",
         "psr/http-server-middleware": "^1.0"
     },
     "require-dev": {
