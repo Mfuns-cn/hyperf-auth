@@ -12,9 +12,7 @@ declare(strict_types=1);
 
 namespace Mfuns\HyperfAuth\Middlewares;
 
-use Exception;
 use Hyperf\HttpServer\Contract\ResponseInterface;
-use InvalidArgumentException;
 use Mfuns\HyperfAuth\AuthManager;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface as PsrResponseInterface;
@@ -40,14 +38,9 @@ abstract class AbstractAuthMiddleware implements MiddlewareInterface
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): PsrResponseInterface
     {
-        try {
-            $guard = $this->authManager->guard($this->guard_name);
-            if ($guard->check()) {
-                return $handler->handle($request);
-            }
-        } catch (InvalidArgumentException|Exception $exception) {
-            var_dump($exception->getTraceAsString());
-            return $this->fail($exception->getMessage());
+        $guard = $this->authManager->guard($this->guard_name);
+        if ($guard->check()) {
+            return $handler->handle($request);
         }
         return $this->fail();
     }
