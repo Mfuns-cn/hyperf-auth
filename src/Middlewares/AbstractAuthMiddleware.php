@@ -22,17 +22,17 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 abstract class AbstractAuthMiddleware implements MiddlewareInterface
 {
+    protected ?string $guard_name = null;
+
     /**
      * @param ContainerInterface $container
      * @param ResponseInterface $response
      * @param AuthManager $authManager
-     * @param null|string $guard_name
      */
     public function __construct(
         protected ContainerInterface $container,
         protected ResponseInterface $response,
         protected AuthManager $authManager,
-        protected ?string $guard_name = null
     ) {
     }
 

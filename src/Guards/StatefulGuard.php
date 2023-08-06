@@ -100,6 +100,9 @@ class StatefulGuard implements GuardInterface
 
     public function user(): AuthenticatableInterface|null
     {
+        if ($this->userModel !== null) {
+            return $this->userModel;
+        }
         if (! $this->check()) {
             return null;
         }
@@ -134,14 +137,17 @@ class StatefulGuard implements GuardInterface
                 if (isset($this->request->getHeader('Authorization')[0])) {
                     $this->origin_token = $this->request->getHeader('authorization')[0];
                 }
-            } elseif (in_array('query', $auth_methods) && $this->request->getQueryParams()['token']) {
+            }
+            if ($this->origin_token === null && in_array('query', $auth_methods) && $this->request->getQueryParams()['token']) {
                 $this->origin_token = $this->request->getQueryParams()['token'];
-            } elseif (in_array('cookie', $auth_methods)) {
+            }
+            if ($this->origin_token === null && in_array('cookie', $auth_methods)) {
                 $cookie_name = $this->options['cookie_name'] ?? 'AuthToken';
                 if (isset($this->request->getCookieParams()[$cookie_name])) {
                     $this->origin_token = $this->request->getCookieParams()[$cookie_name];
                 }
-            } elseif (in_array('session', $auth_methods)) {
+            }
+            if ($this->origin_token === null && in_array('session', $auth_methods)) {
                 $session_key = $this->options['session_key'] ?? 'auth_guard_session';
                 $this->origin_token = $this->container->get(SessionInterface::class)->get($session_key);
             }
@@ -262,6 +268,8 @@ class StatefulGuard implements GuardInterface
         if ($this->options['auth_methods'] === ['session']) {
             $this->setLoginSession($token);
         }
+
+        $this->setUserModel($user);
         return $token;
     }
 
