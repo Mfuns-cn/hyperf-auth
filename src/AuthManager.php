@@ -19,6 +19,7 @@ use Mfuns\HyperfAuth\Contracts\AuthManagerInterface;
 use Mfuns\HyperfAuth\Contracts\GuardInterface;
 use Mfuns\HyperfAuth\Contracts\TokenProviderInterface;
 use Psr\Container\ContainerInterface;
+use function Hyperf\Support\make;
 
 class AuthManager implements AuthManagerInterface
 {

@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 use Mfuns\HyperfAuth\Guards\StatefulGuard;
 use Mfuns\HyperfAuth\Handler\HathTokenHandler;
+use Mfuns\Test\HyperfAuth\Model\UserModel;
 
 return [
     /*
@@ -42,7 +43,7 @@ return [
     'guards' => [
         'api' => [
             'driver' => StatefulGuard::class,
-            'model' => \Mfuns\Test\HyperfAuth\Model\UserModel::class,
+            'model' => UserModel::class,
             'token_provider' => 'hash_token',
             'options' => [
                 'redis_conn_name' => 'default', // redis pool name
@@ -54,7 +55,7 @@ return [
         ],
         'lighting' => [
             'driver' => StatefulGuard::class,
-            'model' => \Mfuns\Test\HyperfAuth\Model\UserModel::class,
+            'model' => UserModel::class,
             'token_provider' => 'hash_token',
             'options' => [
                 'redis_conn_name' => 'default', // redis pool name
@@ -65,7 +66,7 @@ return [
         ],
         'session_only' => [ // auth_methods 只为 session 的时候 login 和 logout 方法才会托管 set 与 del session 工作
             'driver' => StatefulGuard::class,
-            'model' => \Mfuns\Test\HyperfAuth\Model\UserModel::class,
+            'model' => UserModel::class,
             'token_provider' => 'token2',
             'options' => [
                 'redis_conn_name' => 'default', // redis pool name

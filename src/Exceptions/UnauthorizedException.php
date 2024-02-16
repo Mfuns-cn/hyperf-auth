@@ -14,6 +14,4 @@ namespace Mfuns\HyperfAuth\Exceptions;
 
 use Exception;
 
-class UnauthorizedException extends Exception
-{
-}
+class UnauthorizedException extends Exception {}

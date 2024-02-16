@@ -20,13 +20,12 @@ class UserSessionData
 {
     public function __construct(
         private HashTokenData $hashTokenData,
-        private string|int $expire_time,
+        private int|string $expire_time,
         private string $active_ip,
-        private string|int $login_time,
-        private string|int $active_time,
+        private int|string $login_time,
+        private int|string $active_time,
         private array $extra
-    ) {
-    }
+    ) {}
 
     /**
      * 从 json 或者 数组里解析用户会话数据.
@@ -90,7 +89,7 @@ class UserSessionData
         ];
     }
 
-    public function updateExpireTime(string|int $time): self
+    public function updateExpireTime(int|string $time): self
     {
         $this->expire_time = $time;
         return $this;

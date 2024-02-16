@@ -20,7 +20,7 @@ trait ModelQueryTrait
 {
     protected string $model;
 
-    public function createModel(): Model|AuthenticatableInterface
+    public function createModel(): AuthenticatableInterface|Model
     {
         $class = '\\' . ltrim($this->model, '\\');
 

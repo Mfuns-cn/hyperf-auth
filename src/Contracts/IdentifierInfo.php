@@ -17,8 +17,7 @@ class IdentifierInfo
     public function __construct(
         protected string $name,
         protected int|string $value,
-    ) {
-    }
+    ) {}
 
     /**
      * @return string

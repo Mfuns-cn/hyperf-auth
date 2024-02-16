@@ -12,6 +12,4 @@ declare(strict_types=1);
 
 namespace Mfuns\Test\HyperfAuth\Service;
 
-class AuthService
-{
-}
+class AuthService {}

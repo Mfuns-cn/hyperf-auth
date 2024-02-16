@@ -62,7 +62,7 @@ interface GuardInterface
      * @param $user
      * @return $this
      */
-    public function setUserModel($user): AuthenticatableInterface|Model|null;
+    public function setUserModel($user): null|AuthenticatableInterface|Model;
 
     /**
      * 获取有效会话数据集合.

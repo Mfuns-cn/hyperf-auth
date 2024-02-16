@@ -74,7 +74,7 @@ class HathTokenHandler implements TokenProviderInterface
     /**
      * @throws TokenDecodeException
      */
-    public function decode(string $token): HashTokenData|false
+    public function decode(string $token): false|HashTokenData
     {
         $token = base64_decode($token);
 

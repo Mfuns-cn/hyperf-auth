@@ -13,6 +13,4 @@ declare(strict_types=1);
 namespace Mfuns\HyperfAuth\Guards;
 
 // TODO: jwt token
-class StatelessGuard
-{
-}
+class StatelessGuard {}
