@@ -14,6 +14,4 @@ namespace Mfuns\HyperfAuth\Exceptions;
 
 use Exception;
 
-class UserSessionDataCreateException extends Exception
-{
-}
+class UserSessionDataCreateException extends Exception {}

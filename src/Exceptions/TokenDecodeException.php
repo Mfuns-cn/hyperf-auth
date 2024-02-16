@@ -14,6 +14,4 @@ namespace Mfuns\HyperfAuth\Exceptions;
 
 use Exception;
 
-class TokenDecodeException extends Exception
-{
-}
+class TokenDecodeException extends Exception {}

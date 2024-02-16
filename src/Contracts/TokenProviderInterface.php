@@ -28,5 +28,5 @@ interface TokenProviderInterface
      * @param string $token
      * @return false|HashTokenData
      */
-    public function decode(string $token): HashTokenData|false;
+    public function decode(string $token): false|HashTokenData;
 }

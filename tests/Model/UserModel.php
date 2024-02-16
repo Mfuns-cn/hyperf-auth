@@ -25,12 +25,12 @@ class UserModel extends Model implements AuthenticatableInterface
         // TODO: Implement getAuthIdentifierName() method.
     }
 
-    public function getUserModelFormCache(IdentifierInfo $identifierInfo): Model|AuthenticatableInterface
+    public function getUserModelFormCache(IdentifierInfo $identifierInfo): AuthenticatableInterface|Model
     {
         // TODO: Implement getUserModelFormCache() method.
     }
 
-    public function getUserModel(IdentifierInfo $identifierInfo): Model|AuthenticatableInterface
+    public function getUserModel(IdentifierInfo $identifierInfo): AuthenticatableInterface|Model
     {
         // TODO: Implement getUserModel() method.
     }
