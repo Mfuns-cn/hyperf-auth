@@ -33,8 +33,7 @@ abstract class AbstractAuthMiddleware implements MiddlewareInterface
         protected ContainerInterface $container,
         protected ResponseInterface $response,
         protected AuthManager $authManager,
-    ) {
-    }
+    ) {}
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): PsrResponseInterface
     {

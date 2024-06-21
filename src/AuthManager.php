@@ -20,6 +20,8 @@ use Mfuns\HyperfAuth\Contracts\GuardInterface;
 use Mfuns\HyperfAuth\Contracts\TokenProviderInterface;
 use Psr\Container\ContainerInterface;
 
+use function Hyperf\Support\make;
+
 class AuthManager implements AuthManagerInterface
 {
     protected ContainerInterface $container;
@@ -55,7 +57,7 @@ class AuthManager implements AuthManagerInterface
         );
     }
 
-    public function guard(string $name = null): GuardInterface
+    public function guard(?string $name = null): GuardInterface
     {
         if ($name == null) {
             $name = $this->getDefaultDriver();

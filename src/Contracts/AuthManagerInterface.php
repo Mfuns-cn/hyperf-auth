@@ -14,5 +14,5 @@ namespace Mfuns\HyperfAuth\Contracts;
 
 interface AuthManagerInterface
 {
-    public function guard(string $name = null): GuardInterface;
+    public function guard(?string $name = null): GuardInterface;
 }

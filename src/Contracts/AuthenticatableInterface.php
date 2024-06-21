@@ -21,14 +21,14 @@ interface AuthenticatableInterface
      * @param IdentifierInfo $identifierInfo
      * @return AuthenticatableInterface|Model
      */
-    public function getUserModel(IdentifierInfo $identifierInfo): Model|AuthenticatableInterface;
+    public function getUserModel(IdentifierInfo $identifierInfo): Model|self;
 
     /**
      * 通过缓存获取用户的模型.
      * @param IdentifierInfo $identifierInfo
      * @return AuthenticatableInterface|Model
      */
-    public function getUserModelFormCache(IdentifierInfo $identifierInfo): Model|AuthenticatableInterface;
+    public function getUserModelFormCache(IdentifierInfo $identifierInfo): Model|self;
 
     /**
      * 获取主键ID的字段名称.

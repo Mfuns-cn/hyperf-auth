@@ -22,10 +22,10 @@ class Utils
     public static function ip($request): string
     {
         $headers = $request->getHeaders();
-        if (isset($headers['x-forwarded-for'][0]) && ! empty($headers['x-forwarded-for'][0])) {
+        if (! empty($headers['x-forwarded-for'][0])) {
             return $headers['x-forwarded-for'][0];
         }
-        if (isset($headers['x-real-ip'][0]) && ! empty($headers['x-real-ip'][0])) {
+        if (! empty($headers['x-real-ip'][0])) {
             return $headers['x-real-ip'][0];
         }
 

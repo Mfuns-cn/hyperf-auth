@@ -65,7 +65,7 @@ class StatefulGuard implements GuardInterface
      */
     protected Redis|RedisProxy $redis;
 
-    protected AuthenticatableInterface|Model|null $userModel = null;
+    protected null|AuthenticatableInterface|Model $userModel = null;
 
     protected ?string $origin_token = null;
 
@@ -98,7 +98,7 @@ class StatefulGuard implements GuardInterface
         $this->use_model_cache = $this->options['model_cache'] ?? false;
     }
 
-    public function user(): AuthenticatableInterface|null
+    public function user(): ?AuthenticatableInterface
     {
         if ($this->userModel !== null) {
             return $this->userModel;
@@ -173,7 +173,7 @@ class StatefulGuard implements GuardInterface
         return true;
     }
 
-    public function setUserModel($user): AuthenticatableInterface|Model|null
+    public function setUserModel($user): null|AuthenticatableInterface|Model
     {
         $this->userModel = $user;
         return $this->userModel;
