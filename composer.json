@@ -29,9 +29,9 @@
         "hyperf/framework": "3.1.*",
         "hyperf/http-server": "3.1.*",
         "hyperf/redis": "3.1.*",
-        "mfuns-cn/hyperf-hashing": "3.1.x-dev",
         "psr/http-message": "^1.0|^2.0",
-        "psr/http-server-middleware": "^1.0"
+        "psr/http-server-middleware": "^1.0",
+        "mfuns-cn/hyperf-hashing": "3.1.*"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",

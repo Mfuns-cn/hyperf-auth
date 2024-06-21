@@ -98,7 +98,7 @@ class StatefulGuard implements GuardInterface
         $this->use_model_cache = $this->options['model_cache'] ?? false;
     }
 
-    public function user(): null|AuthenticatableInterface
+    public function user(): ?AuthenticatableInterface
     {
         if ($this->userModel !== null) {
             return $this->userModel;
